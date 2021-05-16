@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>作业</title>
+  <style>
+    .movie-color {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<!--作业需求：初始列表显示第一个为红色，然后点击列表中的哪一项，哪一项变成红色-->
+<div id="app">
+  <ul>
+    <!--    @click 后会重新渲染页面？-->
+    <li v-for="(m,index) in movies" :class="getClass(index)" @click="changeColor(index)">
+      {{index}}-{{m}}
+    </li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue',
+      movies: ['火影', '海贼王', '斗罗大陆', '进击的巨人'],
+      isActive: true,
+      index: 0
+    },
+    methods: {
+      getClass: function (index) {
+        if (index === this.index) {
+          return {'movie-color': true}
+        } else {
+          return {'movie-color': false}
+        }
+      },
+      changeColor: function (index) {
+        this.index = index
+      }
+    }
+  })
+</script>
+</body>
+</html>

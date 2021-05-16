@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-pre指令</title>
+</head>
+<body style="background: olivedrab">
+<div id="app">
+  <h2>{{message}}</h2>
+  <!--  v-pre指令 用于跳过这个元素和它的子元素的编译过程，显示原本的Mustache语法
+  这行代码展示结果为：{{message}}-->
+  <h2 v-pre>{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Vue的自定义模板template',
+    }
+  })
+</script>
+</body>
+</html>

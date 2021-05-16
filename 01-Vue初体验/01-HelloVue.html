@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+<body>
+<!--引入vue.js 开发版-->
+<script src="../js/vue.js"></script>
+
+<div id="app">
+    <h1>{{message}}</h1>
+    <h2>{{name}}</h2>
+</div>
+<script>
+    // let(ES6中定义变量)/ const(ES6中定义常量)
+    // 编程范式： 声明式编程
+    let app = new Vue({
+        el: '#app', // 挂载点，用于挂在要管理的元素
+        data: { // 定义数据
+            message: 'Hello Vue！',
+            name: '五行缺雨'
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-cloak指令</title>
+</head>
+<body>
+<div id="app">
+  <h2 v-cloak>{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Vue的自定义模板template',
+    }
+  })
+</script>
+</body>
+</html>

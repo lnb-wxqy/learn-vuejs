@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-bind动态绑定class</title>
+  <style>
+    .active {
+      color: red;
+    }
+    .line {
+      border-bottom-style: solid;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <!--  v-bind绑定class语法-->
+  <!--  <h2 :class="{key1: value1,key2:value2}">{{message}}</h2>-->
+  <!--  <h2 :class="{类名1: value1,类名2:value2}">{{message}}</h2>-->
+<!--  用法1-->
+  <h2 :class="{'active': isActive}">{{message}}</h2>
+<!--  用法2： 可以和普通class同时存在，并不冲突-->
+  <h2 class="line" :class="{'active': isActive}">{{message}}</h2>
+  <button @click="changeColor">点我切换颜色</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue',
+      isActive: true
+    },
+    methods: {
+      changeColor: function () {
+        this.isActive = !this.isActive
+      }
+    }
+  })
+</script>
+</script>
+</body>
+</html>

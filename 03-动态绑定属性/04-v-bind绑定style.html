@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-bind绑定style</title>
+  <style>
+    .color{
+      color: olivedrab;
+    }
+    .size{
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <!--  b-bind绑定style用法-->
+  <!--  用法1：绑定对象
+  对象的key是css的属性名称
+  对象的value是具体的值-->
+  <!--  <h2 :style="{key:vaule,key2:value2}">{{message}}</h2>-->
+  <h2 :style="{'color':currentColor,'font-size':fontSize}">{{message}}</h2>
+  <!--  用法2： 绑定数组-->
+  <h2 :style="[]"></h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue',
+      currentColor: 'red',
+      fontSize: '40px'
+    }
+  })
+</script>
+</body>
+</html>

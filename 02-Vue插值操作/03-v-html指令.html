@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-html指令</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{link}}</h2>
+<!--  v-html指令：解析HTML字符串，并进行渲染-->
+  <h2 v-html="link"></h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      link: '<a href="http://www.baidu.com">百度一下</a>',
+    }
+  })
+</script>
+</body>
+</html>

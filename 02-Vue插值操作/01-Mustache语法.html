@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mustache语法</title>
+</head>
+<body style="background: olivedrab">
+<div id="app">
+  <!--  Mustache语法是一对花括号，不仅可以写变量，还可以下表达式-->
+  <h2>{{message}}</h2>
+  <h2>{{firstName + ' ' + lastName}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Vue的自定义模板template',
+      firstName: 'kobe',
+      lastName: 'andy'
+    }
+  })
+</script>
+</body>
+</html>

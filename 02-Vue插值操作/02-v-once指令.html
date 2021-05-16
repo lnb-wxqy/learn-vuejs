@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-once指令</title>
+</head>
+<body style="background: olivedrab">
+<div id="app">
+<!--  v-once
+  1. v-once指令表示元素和组件只渲染一次，不会随着数据的改变而改变
+  2. v-once指令后面不需要跟表达式-->
+  <h2 v-once>{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Vue的自定义模板template',
+    }
+  })
+</script>
+</body>
+</html>
