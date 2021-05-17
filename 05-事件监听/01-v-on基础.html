@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{counter}}</h2>
+  <button v-on:click="counter++">按钮点击1</button>
+  <button v-on:click="addCounter">按钮点击2</button>
+
+  <!--    v-on语法糖，简写为： @-->
+  <button @click="addCounter">按钮点击3</button>
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0
+        },
+        methods: {
+            addCounter() {
+                this.counter++
+            }
+        }
+    })
+</script>
+</body>
+</html>

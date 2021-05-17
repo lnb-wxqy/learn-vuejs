@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!-- 复选框分为两种情况：单个勾选框和多个勾选框
+  1. 单个勾选框：
+    1.1. v-model即为布尔值
+    1.2 此时input的value并不影响v-model的值-->
+  <label for="check">
+    <input type="checkbox" v-model="checked" id="check">同意
+  </label>
+  <p>是否选中： {{checked}}</p>
+
+  <!--  2.多个复选框
+      2.1 复选框因为是多个，所以对应的data中属性是一个数组
+      2.2 当选中某一个时，就会将input中的value添加到数组中-->
+  <label><input type="checkbox" v-model="hobbies" value="篮球">篮球</label>
+  <label><input type="checkbox" v-model="hobbies" value="排球">排球</label>
+  <label><input type="checkbox" v-model="hobbies" value="台球">台球</label>
+  <label><input type="checkbox" v-model="hobbies" value="羽毛球">羽毛球</label>
+  <p>选中的爱好是：{{hobbies}}</p>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            checked: false,
+            hobbies: []
+        }
+    })
+</script>
+</body>
+</html>

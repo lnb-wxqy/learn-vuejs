@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--  v-if 原理
+  v-if后面的条件为false时，对应的元素以及其子元素不会渲染-->
+  <h2 v-if="score>=90">优秀</h2>
+  <h2 v-else-if="score>=80">良好</h2>
+  <h2 v-else-if="score>=60">及格</h2>
+  <h2 v-else>不及格</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            score: 98
+        }
+    })
+</script>
+</body>
+</html>

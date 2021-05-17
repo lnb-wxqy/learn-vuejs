@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--v-if和v-show比较-->
+<!--当v-if为false时，压根不会有相应的元素在DOM中-->
+<!--当v-show为false时，元素依然存在于DOM中，仅仅将元素的display属性设为none而已-->
+<div id="app">
+  <button @click="changeToggle">切换</button>
+  <p v-show="isShow">我要不要显示呢</p>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            isShow: true
+        },
+        methods: {
+            changeToggle() {
+                this.isShow = !this.isShow
+            }
+        }
+    })
+</script>
+</body>
+</html>

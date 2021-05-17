@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--  for 属性规定了label标签与哪个表单元素绑定-->
+  <!--  当选中某一个时，就会将input的value添加到数组中-->
+  <label for="male">男</label>
+  <input type="radio" :value="abc" v-model="gender" id="male">
+
+  <label for="female">女</label>
+  <input type="radio" value="female" v-model="gender" id="female">
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            gender: ' ',
+            abc: 'male'
+        }
+    })
+</script>
+</body>
+</html>
