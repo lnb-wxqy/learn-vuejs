@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>模板分离写法</title>
+</head>
+<body>
+<!--Vue提供了两种方案来定义HTML木块内容-->
+<!-- 1. Script标签-->
+<div id="app">
+  <my-cpn></my-cpn>
+  <my-cpn2></my-cpn2>
+</div>
+<script src="../js/vue.js"></script>
+
+<script type="text/x-template" id="myCpn">
+  <div>
+    <h2>组件标题</h2>
+    <p>我是组件内容，今天天气不错</p>
+  </div>
+</script>
+
+<!-- 2. template标签-->
+<template id="myCpn2">
+  <div>
+    <h2>template组件</h2>
+    <p>我是template模板组件内容</p>
+  </div>
+</template>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        components: {
+            'my-cpn': {
+                template: '#myCpn'
+            },
+            'my-cpn2':{
+                template: '#myCpn2'
+            }
+        }
+    })
+</script>
+</body>
+</html>

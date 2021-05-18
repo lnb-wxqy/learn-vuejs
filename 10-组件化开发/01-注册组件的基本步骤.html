@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>注册组件</title>
+</head>
+<body>
+<div id="app">
+  <!--  3. 使用组件-->
+  <!--  组件必须挂载在某个Vue实例下，否则它不会生效-->
+  <my-cpt></my-cpt>
+  <!--  不能显示-->
+  <global-cpn></global-cpn>
+
+</div>
+
+<div id="app2">
+  <my-cpt></my-cpt>
+  <global-cpn></global-cpn>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+
+    // 1. 创建组件构造器
+    // 这种写法在Vue2.x的文档中几乎已经看不到了，它会直接使用下面我们会讲到的语法糖，
+    // 但是在很多资料还是会提到这种方式，而且这种方式是学习后面方式的基础
+    const myComponent = Vue.extend({
+        template: `
+          <div>
+            <h2>组件标题</h2>
+            <p>这是组件中的一个段落</p>
+          </div>
+        `
+    })
+
+    // 注册组件，并给组件定义标签名(全局组件)
+    Vue.component('my-cpt', myComponent)
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            score: 98
+        }
+    })
+
+    const globalComponent = Vue.extend({
+        template: `
+          <h2>这是局部组件</h2>
+        `
+    })
+
+
+    let app2 = new Vue({
+        el: '#app2',
+        // 将组件构造器放在了实例当中
+        components: {
+            'global-cpn': globalComponent
+        }
+
+    })
+</script>
+</body>
+</html>

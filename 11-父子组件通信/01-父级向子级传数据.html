@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--在组件中，使用选项props来声明需要从父级接收到的数据。
+props的值有两种方式：
+方式一：字符串数组，数组中的字符串就是传递时的名称。
+方式二：对象，对象可以设置传递时的类型，也可以设置默认值等-->
+<div id="app">
+  <my-cpn :message="message"></my-cpn>
+</div>
+<template id="mycpn">
+  <h2>接收到父级的数据：{{message}}</h2>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            message: '父子组件通信'
+        },
+        components: {
+            'my-cpn': {
+                template: '#mycpn',
+                props: ['message']
+            }
+        }
+
+    })
+</script>
+</body>
+</html>
