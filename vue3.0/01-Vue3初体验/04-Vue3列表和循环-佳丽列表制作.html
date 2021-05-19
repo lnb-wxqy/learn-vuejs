@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue3列表和循环-佳丽列表</title>
+</head>
+<body>
+<script src="../js3/vue.global.js"></script>
+
+<div id="app"></div>
+
+<script>
+  Vue.createApp({
+    data() {
+      return {
+        list: ['珏琪', '亦菲', '静文'],
+        inputVal: ''
+      };
+    },
+    methods: {
+      pushJiaLi() {
+        this.list.push(this.inputVal)
+        this.inputVal = ''
+      }
+    },
+    template: `
+      <div>
+      <input type="text" v-model="inputVal">
+      <button v-on:click="pushJiaLi">添加一个佳丽</button>
+      <ul>
+        <li v-for="(item,index) in list"> [{{ index }}]-{{ item }}</li>
+      </ul>
+      </div>
+    `
+  }).mount("#app")
+</script>
+</body>
+</html>

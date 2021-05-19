@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue3计数器</title>
+  <script src="../js3/vue.global.js"></script>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+  Vue.createApp({
+    data() {
+      return {counter: 1}
+    },
+    // mounted 是生命周期函数，页面加载完成后会自动执行
+    mounted() {
+      console.log('页面加载完成后自动执行！')
+      setInterval(() => {
+        this.counter++
+        // this.$data.counter++ 效果相同
+      }, 1000)
+    },
+    template: `
+      <div><h1> {{ counter }}</h1></div>`
+  }).mount("#app")
+</script>
+</body>
+</html>

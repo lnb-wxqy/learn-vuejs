@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Vue3</title>
+  <title>Vue3初识</title>
+  <script src="../js3/vue.global.js"></script>
 </head>
 <body>
 <div id="app"></div>
 <!-- 引入vue3.js-->
 <!--<script src="https://unpkg.com/vue@next"></script>-->
-<script src="../js3/vue.global.js"></script>
 
 <script>
-  Vue.createApp({
-      template:`<div><h1>Hello Vue3</h1></div>`
-  }).mount("#app")
+  Vue.createApp({ // 创建一个Vue实例
+    template: `<div><h1>Hello Vue3</h1></div>` // template是模板的意思，就是在JS中写html代码
+  }).mount("#app") // 这个模板需要放置在一个位置，也就是挂载，挂载到id=app的DOM上
 </script>
 </body>
 </html>
