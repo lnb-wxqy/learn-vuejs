@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue3组件开发-每个佳丽都是组件</title>
+</head>
+<body>
+<script src="../js3/vue.global.js"></script>
+
+<div id="app">
+</div>
+
+<script>
+  const app = Vue.createApp({
+
+    data() {
+      return {
+        list: ['珏琪', '亦菲', '静文'],
+        inputVal: ''
+      };
+    },
+    methods: {
+      pushJiaLi() {
+        this.list.push(this.inputVal)
+        this.inputVal = ''
+      }
+    },
+    template: `
+      <div>
+      <my-title></my-title>
+      <input type="text" v-model="inputVal">
+      <button v-on:click="pushJiaLi">添加一个佳丽</button>
+      <ul>
+        <my-jiali v-for="(item,index) in list"
+                  v-bind:item="item"
+                  v-bind:index="index">
+
+        </my-jiali>
+      </ul>
+      </div>
+    `
+  })
+
+  // 注册标题组件
+  app.component('my-title', {
+    template: `<h2 style="text-align: center">象牙山洗脚城</h2>`
+  })
+
+  // 注册佳丽组件
+  app.component('my-jiali', {
+    props: ['index', 'item'],
+    template: `
+      <li>[{{ index }}]-{{ item }}</li>`
+  })
+
+  // app挂载到div中
+ const vm= app.mount("#app")
+
+</script>
+</body>
+</html>

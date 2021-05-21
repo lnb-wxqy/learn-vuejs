@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>生命周期函数1</title>
+</head>
+<body>
+<script src="../js3/vue.global.js"></script>
+
+<div id="app">
+</div>
+
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        msg: '生命周期函数'
+      }
+    },
+    template:`<h2>{{msg}}</h2>`,
+    methods: {},
+    // 生命周期函数
+    // 1. beforeCreate()：在实例生成之前会自动执行的函数
+    beforeCreate() {
+      console.log('--beforeCreate--')
+    },
+    //2. created()： 在实例生成之后会自动执行的函数
+    created() {
+      console.log('--created--')
+    },
+    //3. beforeMount()： 在模板渲染完成之前执行的函数
+    beforeMount() {
+      console.log('--beforeMount--')
+    },
+    //4. mounted()： 在模板渲染完成之后执行的函数
+    mounted() {
+      console.log('--mounted--')
+    },
+    //5. beforeUpdate(): 当data中的数据变化时， 会立即自动执行的函数
+    beforeUpdate() {
+      console.log('--beforeUpdate--')
+    },
+    //6. updated()：当data中的数据发生变化，页面重新渲染完后，会自动执行的函数
+    updated() {
+      console.log('------update-----')
+    },
+    // beforeUnmount()：当Vue应用失效时，会自动执行函数
+    beforeUnmount() {
+      console.log('--beforeUnmount--')
+    },
+    // unmounted(): 当Vue应用失效时，且DOM完全销毁之后，会自动执行
+    unmounted() {
+      console.log('--unmounted--')
+    }
+  })
+
+  app.mount("#app")
+
+</script>
+</body>
+</html>

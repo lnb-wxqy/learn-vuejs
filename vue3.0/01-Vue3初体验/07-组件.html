@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>组件</title>
+</head>
+<body>
+<script src="../js3/vue.global.js"></script>
+
+<div id="app">
+  <!--  调用模板组件-->
+  <ol>
+    <my-item v-for="item in movies"
+    v-bind:movie="item"
+    v-bind:key="item.id"></my-item>
+  </ol>
+</div>
+
+<script>
+
+  // 定义一个对象
+  const MoviesObj = {
+    data() {
+      return {
+        movies: [
+          {name: '斗罗大陆', zy: '唐三小舞'},
+          {name: '火影忍者', zy: '鸣人'},
+          {name: '海贼王', zy: '路飞'}
+        ]
+      }
+    }
+  }
+
+  // 创建Vue实例
+  const app = Vue.createApp(MoviesObj)
+
+  // 定义一个组件
+  app.component('my-item', {
+    props:['movie'],
+    template: `<li>This is a todo! {{movie}}</li>`
+  })
+
+
+  //  将Vue实例挂载到id为App的DOM上
+  app.mount('#app')
+
+</script>
+</body>
+</html>
