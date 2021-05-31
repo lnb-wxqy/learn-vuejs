@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>todoList案例</title>
+</head>
+<body>
+<script src="../js3/vue.global.js"></script>
+
+<div id="app" class="todolist">
+  <h1>Vue实现TODOList案例</h1>
+  <div>
+    <input type="text" @keyup.enter="addData" v-model="todo">
+    <hr>
+    <h2>待办事项</h2>
+    <ul>
+      <template v-for="(item,index) in list" :key="item.id">
+        <!--      v-if不能直接和v-for一起写，因为v-for的优先级比b-if高-->
+        <!--        <li v-for="(item,index) in list" :key="item.id" v-show="!item.checked">-->
+        <li v-if="!item.checked">
+          <input type="checkbox" v-model="item.checked" @change="setTodolist">
+          {{item.title}}
+          <button @click="deleteData(index)">删除</button>
+        </li>
+      </template>
+    </ul>
+    <h2>完成事项</h2>
+    <ul>
+      <template v-for="(item,index) in list" :key="item.id">
+        <!--      v-if不能直接和v-for一起写，因为v-for的优先级比b-if高-->
+        <!--        <li v-for="(item,index) in list" :key="item.id" v-show="!item.checked">-->
+        <li v-if="item.checked">
+          <input type="checkbox" v-model="item.checked" @change="setTodolist">
+          {{item.title}}
+          <button @click="deleteData(index)">删除</button>
+        </li>
+      </template>
+    </ul>
+    
+    <pre>{{list}}</pre>
+  
+  </div>
+</div>
+
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        todo: '',
+        list: []
+      }
+    },
+    methods: {
+      addData() {
+        this.list.push({
+          title: this.todo,
+          checked: false
+        })
+        this.todo = ''
+        this.setTodolist()
+      },
+      deleteData(key) {
+        this.list.splice(key, 1)
+       this.setTodolist()
+      },
+      setTodolist(){
+        localStorage.setItem('todolist',JSON.stringify(this.list))
+      }
+    },
+    // 生命周期函数，页面加载时调用
+    mounted(){
+      let strList =localStorage.getItem('todolist')
+      if (strList){
+        this.list=JSON.parse(strList)
+      }
+    }
+  })
+  
+  app.mount('#app')
+</script>
+
+<style>
+  .todolist {
+    width: 500px;
+    border: 1px solid #eee;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 20px;
+  }
+
+</style>
+</body>
+</html>

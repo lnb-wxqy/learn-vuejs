@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>js中的高阶函数filter/map/reduce</title>
+</head>
+<body>
+<div id="app">
+  <h2>js中的高阶函数filter/map/reduce</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  
+  const nums = [12, 23, 66, 200, 234, 54]
+  // 1. filter函数
+  // filter函数中的回调函数有一个要求：必须返回一个boolean值
+  // true： 当返回true时，函数内部会自动将这次回调的n加入到数组newNums中
+  // false：当返回false时，函数内部会过滤掉这次的n
+  let newNums = nums.filter(function (n) {
+    return n < 100
+  })
+  // 当return true时，newNums结果：[12, 23, 66, 200, 234, 54]
+  // 当return n<100时，newNums结果：[12, 23, 66, 54]
+  console.log(newNums)
+  
+  
+  //  2. map函数的使用
+  // return n*2： 表示将newNums中的每个元素都乘以2
+  let new2Nums = newNums.map(function (n) {
+    return n * 2
+  })
+  
+  // 输出结果：[24, 46, 132, 108]
+  console.log(new2Nums);
+  
+  //  3. reduce函数
+  // reduce的作用是将数组中的所有元素进行汇总
+  // 第一次循环： preValue=0，value=24，preValue+value=24
+  // 第二次循环： preValue=24，value=46，preValue+value=70
+  // 第三次循环： preValue=70，value=132，preValue+value=202
+  // 第四次循环： preValue=202，value=108，preValue+value=310
+  let total = new2Nums.reduce(function (preValue, value) {
+    return preValue + value
+  })
+  // 输出结果：310
+  console.log(total);
+  
+  //  高阶函数连用
+  let total2 = nums.filter(function (n) {
+    return n < 100
+  }).map(function (n) {
+    return n * 2
+  }).reduce(function (pre, v) {
+    return pre + v
+  })
+  // 输出结果：310
+  console.log(total2);
+  
+  //   高阶函数连用2，箭头函数
+  let total3 = nums.filter(n => n < 100).map(n => n * 2).reduce((pre, v) => pre + v)
+  // 输出结果：310
+  console.log(total3);
+</script>
+</body>
+</html>
