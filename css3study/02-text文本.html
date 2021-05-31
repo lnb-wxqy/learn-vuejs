@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>文本</title>
+  <style>
+      h1 {
+          color: #00ff00; /*文本颜色*/
+          text-align: center; /*文本对齐方式: 居中*/
+      }
+
+      .p-justify {
+          /*当text-align设置为"justify"，每一行被展开为宽度相等，左，右外边距是对齐（如杂志和报纸）。*/
+          text-align: justify;
+          /*首行缩进*/
+          text-indent: 1em;
+      }
+
+      .p-overline {
+          text-decoration: overline;
+      }
+
+      .p-line-through {
+          text-decoration: line-through;
+      }
+
+      .p-underline {
+          text-decoration: underline;
+      }
+
+      .uppercase {
+          text-transform: uppercase;
+      }
+
+      .lowercase {
+          text-transform: lowercase;
+      }
+
+      .capitalize {
+          text-transform: capitalize;
+      }
+
+      /*word-spacing： 用于设置单词之间的间距*/
+      /*letter-spacing： 用于设置字符或者汉字之间的间距*/
+      .letter-space1 {
+          letter-spacing: 10px;
+      }
+
+      .letter-space2 {
+          letter-spacing: 50px;
+      }
+
+      .word-space {
+          word-spacing: 20px;
+      }
+  </style>
+</head>
+<body>
+<h1>文本颜色</h1>
+<hr>
+
+<h1>文本对齐样式和文本首行缩进</h1>
+<p class="p-justify">
+  “当我年轻的时候，我梦想改变这个世界；当我成熟以后，我发现我不能够改变这个世界，我将目光缩短了些，决定只改变我的国家；当我进入暮年以后，我发现我不能够改变我们的国家，我的最后愿望仅仅是改变一下我的家庭，但是，这也不可能。当我现在躺在床上，行将就木时，我突然意识到：如果一开始我仅仅去改变我自己，然后，我可能改变我的家庭；在家人的帮助和鼓励下，我可能为国家做一些事情；然后，谁知道呢?我甚至可能改变这个世界。”
+</p>
+<hr>
+
+<h1>文本修饰</h1>
+<p class="p-overline">文本修饰：上划线</p>
+<p class="p-line-through">文本修饰：删除线</p>
+<p class="p-underline">文本修饰：下划线</p>
+<hr>
+
+<h1>文本转换</h1>
+<p class="uppercase">小写转大写：like a dog, like a god</p>
+<p class="lowercase">大写转小写：LIKE a Gog, like a God</p>
+<p class="capitalize">首字母转为大写：like a dog, like a god</p>
+<hr>
+
+<h1>指定字符之间的间距</h1>
+<p class="letter-space1">like a dog,like a god</p>
+<p class="letter-space2">十步杀一人</p>
+<p class="word-space">like a dog,like a god</p>
+<p>word-spacing： 用于设置单词之间的间距; letter-spacing： 用于设置字符或者汉字之间的间距</p>
+
+</body>
+</html>
