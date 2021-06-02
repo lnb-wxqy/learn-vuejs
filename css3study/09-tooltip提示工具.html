@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* Tooltip容器 */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black;
+    }
+
+    /*  Tooltip文本 */
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+
+      /* 定位 */
+      position: absolute;
+      z-index: 1;
+      /* 注意：top：-5px同于定位在容器元素的中间。使用数字5是因为提示文本
+      的顶部和底部的内边距（padding）是5px，如果修改padding的值，top值也要对应修改 */
+      top: -5px;
+      left: 105%;
+
+    }
+
+    /* 鼠标移动上去后显示提示框 */
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="tooltip">
+    鼠标移动到这儿
+    <span class="tooltiptext">提示文本</span>
+  </div>
+</body>
+
+</html>
